@@ -1,0 +1,27 @@
+inner_loop:
+#### inner loop validation #####
+    
+    mov inner_loop_counter, %r11
+    cmp $0, %r11
+    je outter_loop
+
+print_2:
+    mov $string_2, %rdi
+    mov $2, %rsi
+    mov $0, %al
+    call printf
+
+    #jmp theend
+
+compare_ele:
+    #cmp %r9, (%r10)
+    je theend
+    jne nextEle
+    incq tmp 
+
+nextEle:
+    add $4, %r10
+
+decrement_inner:
+    decq inner_loop_counter
+    jmp inner_loop
